@@ -44,7 +44,7 @@ const {thumborImageIndex} = require('./thumbor.js');
 const CleanCSS = require('clean-css');
 // const {PIXI_CLOUD_ROOT} = require('@lib/utils/project').paths;
 const {copyFile} = require('fs/promises');
-const nunjucks = require('nunjucks');
+// const nunjucks = require('nunjucks');
 // const {importBlog} = require('@lib/templates/ImportBlogFilter.js');
 // const {
 //   importYouTubeChannel,
@@ -500,29 +500,29 @@ function buildPages(done) {
  * creates a new nunjucks environment for rendering
  *
  */
-function nunjucksEnv() {
-  const env = new nunjucks.Environment(null, {
-    tags: {
-      blockStart: '[%',
-      blockEnd: '%]',
-      variableStart: '[=',
-      variableEnd: '=]',
-      commentStart: '[[[[#',
-      commentEnd: '#]]]]',
-    },
-  });
-
-  env.addExtension(
-    'SupportedFormatsExtension',
-    new SupportedFormatsExtension()
-  );
+// function nunjucksEnv() {
+//   const env = new nunjucks.Environment(null, {
+//     tags: {
+//       blockStart: '[%',
+//       blockEnd: '%]',
+//       variableStart: '[=',
+//       variableEnd: '=]',
+//       commentStart: '[[[[#',
+//       commentEnd: '#]]]]',
+//     },
+//   });
+// 
+//   env.addExtension(
+//     'SupportedFormatsExtension',
+//     new SupportedFormatsExtension()
+//   );
 //   env.addFilter('importBlog', importBlog, true);
-
+// 
 //   env.addFilter('importYouTubeChannel', importYouTubeChannel, true);
 //   env.addFilter('survey', survey, true);
-
-  return env;
-}
+// 
+//   return env;
+// }
 
 function optimizeFiles(cb) {
   return gulp
