@@ -17,6 +17,9 @@
 describe('FileName', () => {
   const FileName = require('./FileName');
 
+  // Cross-platform path normalization
+  const normalizePath = (p) => p.replace(/\\/g, '/');
+
   describe('fromString', () => {
     it('returns empty string for undefined', () => {
       expect(FileName.fromString(null)).toEqual('');
@@ -38,7 +41,9 @@ describe('FileName', () => {
       expect(FileName.fromString(undefined)).toEqual('');
     });
     it('Adds path', () => {
-      expect(FileName.fromString('hello', 'world')).toEqual('hello/world.html');
+      const actual = FileName.fromString('hello', 'world');
+      const expected = 'hello/world.html';
+      expect(normalizePath(actual)).toEqual(expected);
     });
   });
 

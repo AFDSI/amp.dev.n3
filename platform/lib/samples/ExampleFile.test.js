@@ -16,6 +16,10 @@
 
 describe('ExampleFile', () => {
   const ExampleFile = require('./ExampleFile');
+  const path = require('path');
+
+  // Normalize path separators for cross-platform testing
+  const normalizePath = (p) => p.replace(/\\/g, '/');
 
   describe('created from path', () => {
     const file = ExampleFile.fromPath(
@@ -47,9 +51,9 @@ describe('ExampleFile', () => {
   describe('nextFile', () => {
     const TEST_DIR = __dirname + '/FileNameTestFiles/';
     it('returns next file in alphabetical order', () => {
-      expect(
-        ExampleFile.fromPath(TEST_DIR + 'a.html').nextFile().filePath
-      ).toEqual(TEST_DIR + 'b.html');
+      const actual = ExampleFile.fromPath(TEST_DIR + 'a.html').nextFile().filePath;
+      const expected = TEST_DIR + 'b.html';
+      expect(normalizePath(actual)).toEqual(normalizePath(expected));
     });
     it('returns undefined when the file is the last one in alphabetical order', () => {
       expect(ExampleFile.fromPath(TEST_DIR + 'b.html').nextFile()).toEqual(
