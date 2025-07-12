@@ -511,16 +511,16 @@ function buildPages(done) {
 //       commentEnd: '#]]]]',
 //     },
 //   });
-// 
+//
 //   env.addExtension(
 //     'SupportedFormatsExtension',
 //     new SupportedFormatsExtension()
 //   );
 //   env.addFilter('importBlog', importBlog, true);
-// 
+//
 //   env.addFilter('importYouTubeChannel', importYouTubeChannel, true);
 //   env.addFilter('survey', survey, true);
-// 
+//
 //   return env;
 // }
 
@@ -556,7 +556,7 @@ function optimizeFiles(cb) {
 //     timestamp: Number(new Date()),
 //   };
 // }
-// 
+//
 // async function renderExamples(done) {
 //   const logger = require('@lib/utils/log')('Static File Generator');
 //   const env = nunjucksEnv();
@@ -596,7 +596,7 @@ function optimizeFiles(cb) {
 //       10
 //     ),
 //   ];
-// 
+//
 //   const configObj = {
 //     time: new Date().toLocaleTimeString(),
 //     timestamp: Number(new Date()),
@@ -605,19 +605,19 @@ function optimizeFiles(cb) {
 //       Math.floor(Math.random() * Math.floor(2))
 //     ),
 //   };
-// 
+//
 //   return gulp
 //     .src(`${project.paths.DIST}/examples/sources/**/*.html`)
 //     .pipe(
 //       through.obj(async (file, enc, callback) => {
 //         const srcHTML = file.contents.toString();
-// 
+//
 //         env.renderString(srcHTML, configObj, (err, result) => {
 //           if (err) {
 //             logger.error(`Error rendering ${file.path}`);
 //             return callback(err);
 //           }
-// 
+//
 //           file.contents = Buffer.from(result);
 //           callback(null, file);
 //         });

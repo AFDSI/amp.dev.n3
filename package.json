@@ -24,7 +24,7 @@
 		"log:staging": "gcloud app logs tail -s default --project amp-dev-staging",
 		"postinstall": "gulp downloadTestResources && husky install",
 		"posttest": "npm run lint",
-		"smoke-test": "APP_ENV=local jest smoke-tests --forceExit",
+		"smoke-test": "cross-env APP_ENV=test jest smoke-tests --forceExit",
 		"start:local": "cd platform && NODE_ENV=local node serve.js",
 		"start:playground": "cd playground && webpack serve --mode development",
 		"start:pixi": "cd pixi && webpack serve --mode development",
@@ -33,9 +33,9 @@
 		"test": "npm-run-all test:* --aggregate-output --parallel",
 		"test:prepare": "gulp updateTestResources",
 		"test:platform": "cross-env APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern platform --testPathIgnorePatterns smoke-tests",
-		"test:playground": "APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern playground",
-		"_test:pixi": "APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern pixi",
-		"_test:pixi:e2e": "APP_ENV=local jest --forceExit -c e2e.jest.config.js",
+		"test:playground": "cross-env APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern playground",
+		"_test:pixi": "cross-env APP_ENV=test jest --runInBand --detectOpenHandles --forceExit --testPathPattern pixi",
+		"_test:pixi:e2e": "cross-env APP_ENV=local jest --forceExit -c e2e.jest.config.js",
 		"test:grow-extensions": "cd pages/extensions && if which grow; then python3 -m unittest discover -p \"*_test.py\"; else echo grow not installed with pip. skip tests; fi"
 	},
 	"keywords": [

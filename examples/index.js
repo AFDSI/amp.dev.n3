@@ -34,10 +34,21 @@ function loadRouters(root, prefix = '') {
   const rootDir = resolve(join(__dirname, root));
   listFiles(rootDir, routers, true);
   routers
-    .filter((path) => path.endsWith('.js') && !path.includes('/static/'))
+    .filter(
+      (path) =>
+        path.endsWith('.js') &&
+        !path.includes('/static/') &&
+        !path.toLowerCase().endsWith('sw.js')
+    )
+    //    .filter((path) => path.endsWith('.js') && !path.includes('/static/'))
     .forEach((path) => {
       const route = join(prefix, getRoute(rootDir, path));
-      examples.use('/documentation/examples' + route, require(path));
+      const mod = require(path);
+      if (typeof mod === 'function') {
+        examples.use('/documentation/examples' + route, mod);
+      } else {
+        console.warn(`[examples] Skipping non-middleware module: ${path}`);
+      }
     });
 }
 
