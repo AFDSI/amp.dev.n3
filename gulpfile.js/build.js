@@ -50,9 +50,9 @@ const {copyFile} = require('fs/promises');
 //   importYouTubeChannel,
 // } = require('@lib/templates/ImportYouTubeChannel.js');
 // const {survey} = require('@lib/templates/SurveyFilter.js');
-const {
-  SupportedFormatsExtension,
-} = require('@lib/templates/SupportedFormatsExtension.js');
+// const {
+//   SupportedFormatsExtension,
+// } = require('@lib/templates/SupportedFormatsExtension.js');
 const {optimize} = require('@lib/utils/ampOptimizer.js');
 const toml = require('@iarna/toml');
 
