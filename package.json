@@ -185,6 +185,9 @@
 		"webpack-dev-server": "5.0.4",
 		"write": "2.0.0"
 	},
+	"overrides": {
+		"ws": "8.18.0"
+	},
 	"optionalDependencies": {
 		"fsevents": "2.3.3"
 	},

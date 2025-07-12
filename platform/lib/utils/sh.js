@@ -34,7 +34,7 @@ function sh(commandLine, ...options) {
       cwd: opts.workingDir,
       shell: true, // ✅ enables Windows cmd or Git Bash compatibility
     });
-    // const process = spawn(command, args, {cwd: opts.workingDir});
+	// const process = spawn(command, args, {cwd: opts.workingDir});
     let result = '';
 
     process.stdout.on('data', (data) => {
