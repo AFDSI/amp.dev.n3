@@ -30,10 +30,17 @@ const thumborRouter = express.Router();
 
 const imagePaths = [
   ...config.shared.thumbor.fileExtensions.map((extension) => {
-    return join('/static/', '/**/', `*.${extension}`);
+    return `/static/**/*.${extension}`;
   }),
   REMOTE_STATIC_MOUNT,
 ];
+
+// const imagePaths = [
+//   ...config.shared.thumbor.fileExtensions.map((extension) => {
+//     return join('/static/', '/**/', `*.${extension}`);
+//   }),
+//   REMOTE_STATIC_MOUNT,
+// ];
 
 const DISABLE_THUMBOR = false;
 
